@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parfum</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bayon&family=Montserrat:wght@300;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.32/dist/sweetalert2.min.css" rel="stylesheet">
+</head>
+<body> 
+<!-- HEADER -->
+  <header class="container-fluid">
+    <nav class="navbar navbar-dark colorprincipal fixed-top">
+      <div class="container-fluid">
+        <a class="navbar-brand black fs-2 ps-4" href="#">Parfum</a>
+        <button class="navbar-toggler me-4" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
+          <div class="offcanvas-header colorprincipal">
+            <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Catalogo</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                  <select id="orden">
+                    <option selected>Ordenar:</option>
+                    <option value="1">Mayor a menor</option>
+                    <option value="2">Menor a mayor</option>
+                    <option value="3">Alfabeticamente</option>
+                  </select>
+            <form class="d-flex mt-3" role="search">
+              <input id="buscador" class="form-control me-2 " type="search" placeholder="Ingrese lo que desea buscar" aria-label="Search">
+            </form>
+            <div class="d-flex w-100">
+              <button id="btnToggle" class="btn btn-light mt-3 w-75">Modo oscuro</button>
+              <li className="nav-item ms-3 mt-3" >
+                <a id="botonCarrito" data-bs-toggle="modal" data-bs-target="#idModalCarrito" class="btn btn-primary ms-4  mt-3">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-shopping-cart-dollar" width="32" height="32" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <path d="M4 19a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+                    <path d="M13 17h-7v-14h-2" />
+                    <path d="M6 5l14 1l-.575 4.022m-4.925 2.978h-8.5" />
+                    <path d="M21 15h-2.5a1.5 1.5 0 0 0 0 3h1a1.5 1.5 0 0 1 0 3h-2.5" />
+                    <path d="M19 21v1m0 -8v1" />
+                  </svg>
+                </a>
+            </li>
+            </div>
+
+          </div>
+    </nav>
+    <div class="container-fluid pt-5 d-flex justify-content-center bg-dark">
+      <h6 class="pt-4 text-white">Envios gratis a partir de $30.000</h5>
+    </div>
+  </header>
+
+<!-- MAIN -->
+  <main class="container-fluid">
+    <div id="carouselExampleDark" class="carousel carousel-dark slide">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active" data-bs-interval="100">
+          <img src="./img/carrousel_dior.png" class="d-block w-100" alt="...">
+          <div class="carousel-caption d-none d-md-block">
+          </div>
+        </div>
+        <div class="carousel-item" data-bs-interval="2000">
+          <img src="./img/carrousel_pacorabanne.webp" class="d-block w-100" alt="...">
+          <div class="carousel-caption d-none d-md-block">
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="./img/carrousel_antoniobanderas.webp" class="d-block w-100" alt="...">
+          <div class="carousel-caption d-none d-md-block">
+          </div>
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+
+    <div class="container-fluid d-flex justify-content-center pt-5 pb-5">
+      <p class="textoIntroductorio lh-lg" >
+        Nuestra misión es ayudarte a descubrir el perfume perfecto que complemente tu carácter y realce tu presencia en cualquier ocasión. Creemos que los perfumes son mucho más que fragancias; son recuerdos, emociones y una forma de expresión artística. En nuestro sitio, encontrarás una cuidadosa selección de las mejores fragancias del mundo, desde las clásicas hasta las más vanguardistas
+      </p>
+    </div>
+    <div class="d-flex justify-content-center p-4">
+      <h2>Lo mas vendido en este 2023</h2>
+    </div>
+    <div class="container-fluid">
+      <div id="coincidenciasDOM"></div>
+      <div id="perfumes" class="row d-flex justify-content-center gap-5">
+        </div>
+      </div>
+
+    <!--Modals-->
+
+    <!--Modal Agregar Libro-->
+    <div class="modal fade" id="idModalAgregarLibro" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Agregar Libro</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body" id="modal-body">
+    <!--Formulario-->
+            <form id="formCargarLibro" class="my-4">
+              <div class="mb-3">
+                <label for="titulo" class="form-label">Titulo</label>
+                <input type="text" class="form-control" id="tituloInput" aria-describedby="titulo">
+                
+              </div>
+              <div class="mb-3">
+                <label for="autor" class="form-label">Autor</label>
+                <input type="text" class="form-control" id="autorInput" aria-describedby="autor">
+                
+              </div>
+              <div class="mb-3">
+                <label for="precio" class="form-label">Precio:</label>
+                <input type="text" class="form-control" id="precioInput" aria-describedby="precio">
+                
+              </div>
+          </form>
+          <button type="text" id="guardarLibroBtn" class="btn btn-success" data-bs-dismiss="modal">Guardar Libro</button>
+          </div>
+          
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            <button type="text" id="guardarLibroBtn" class="btn btn-success" data-bs-dismiss="modal">Guardar Libro</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--Modal Carrito-->
+    <div class="modal fade" id="idModalCarrito" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Carrito de Compras</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body" id="modal-bodyCarrito">
+            
+          </div>
+          <div class="row ml-ato">
+            <p id="precioTotal"></p>
+          </div>
+          <div class="modal-footer">
+            
+            
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            <button type="button" data-bs-dismiss="modal" class="btn btn-primary" id="botonFinalizarCompra">Finalizar Compra</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  </main>
+  <!-- FOOTER -->
+  <footer class="container-fluid bg-black d-flex justify-content-around pt-3 text-secondary flex-wrap mt-5">
+    <div class="lh-1">
+        <h4 class="fs-5 fw-bold text-white">Horarios de atencion</h4>
+        <h4 class="fs-6 fw-bold">Lunes a viernes</h4>
+        <p class="fs-6">De 09:00 a 21:00</p>
+        <h4 class="fs-6 fw-bold">Sabados</h4>
+        <p class="fs-6">De 09:00 a 12:00</p>
+    </div>
+    <div class="lh-1">
+        <H4 class="fs-5 fw-bold text-white">Direccion</H4>
+        <p class="fs-6">Av. Rafael </p>
+        <p class="fs-6">1430</p>
+    </div>
+    <div class="lh-1">
+        <h4 class="fs-5 fw-bold text-white">Contacto</h4>
+        <p class="fs-6 fw-bold">email</p>
+        <p class="fs-6">parfum_cerro@gmail.com</p>
+        <p class="fs-6 fw-bold">telefono</p>
+        <p class="fs-6">3514408756</p>
+    </div>
+    <div class=" d-flex align-items-center">
+        <svg xmlns="http://www.w3.org/2000/svg" class="me-3 icon icon-tabler icon-tabler-brand-facebook" width="40" height="40" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <a href=""></a>                
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M7 10v4h3v7h4v-7h3l1 -4h-4v-2a1 1 0 0 1 1 -1h3v-4h-3a5 5 0 0 0 -5 5v2h-3" />
+          </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" class="me-3 icon icon-tabler icon-tabler-brand-instagram" width="40" height="40" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M4 4m0 4a4 4 0 0 1 4 -4h8a4 4 0 0 1 4 4v8a4 4 0 0 1 -4 4h-8a4 4 0 0 1 -4 -4z" />
+            <path d="M12 12m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
+            <path d="M16.5 7.5l0 .01" />
+        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" class="me-3 icon icon-tabler icon-tabler-brand-youtube" width="40" height="40" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M3 5m0 4a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v6a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4z" />
+            <path d="M10 9l5 3l-5 3z" />
+        </svg> 
+    </div>
+</footer>
+    <script src="modoOscuro.js"></script>
+    <script src="perfumeria.js"></script>
+    <!-- BOOSTRAP -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    <!--TOASTIFY-->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.32/dist/sweetalert2.all.min.js"></script>
+
+</body>
+</html>

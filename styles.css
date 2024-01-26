@@ -1,0 +1,43 @@
+/* GENERAL */
+
+* {
+    box-sizing: border-box;
+    font-family: 'Bayon', sans-serif;
+    font-family: 'Montserrat', sans-serif;
+}
+
+header {
+    height: 13vh;
+}
+
+footer {
+    height: 25vh;
+}
+
+/* HEADER */
+
+.colorprincipal {
+    background-color: #9FD5D7;
+}
+
+/* MAIN */
+
+.slide img {
+    height: 85vh;
+}
+
+.textoIntroductorio {
+    width: 80%;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.card {
+    width: 40vh !important;
+    color: black;
+}
+
+.darkMode {
+    color: white;
+    background-color: black;
+}
